@@ -1,5 +1,34 @@
 {
 	"en": {
-		"test": "hello world!"
+		"test": "hello world!",
+		"folder": "Folder",
+		"created": "created!",
+		"already_existed": "already existed!",
+		"queue_updated": "The download queue was successfully updated!",
+		"failed_downloads_list_updated": "Failed downloads list was successfully updated!",
+		"failed_downloads_list_created": "The download queue was successfully created!",
+		"all_downloads_finished": "ALL DOWNLOADS WERE COMPLETED!!!",
+		"download_keeps_failling": "The download keeps failing...",
+		"skipping_to_the_next_one": "Skipping to the next file...",
+		"download_started": "Download Started! Total Size:",
+		"downloading_file": "Downloading file",
+		"error_writting_the_document": "There was an error writting the document...",
+		"file_is_too_big_to_show_progress_bar": "This file is too big to show the progress percentage...",
+		"download_finished": "Download Finished!",
+		"finished_writting_document": "The document was written successfully!",
+		"error_handling_the_request": "There was an error doing the request...",
+		"retyr_number": "Retry Nº",
+		"pending_queue_was_found": "We've found some pending downloads on the queue, so we'll start from there.",
+		"input_dir_name": "Type the Directory's Location:",
+		"input_file_name": "Type the Name of the Series:",
+		"input_file_url": "Type the URL of the File",
+		"input_custom_name": "Does it has a particular Name?",
+		"input_custom_index": "Does it has a particular Index?",
+		"user_forgot_to_add_url": "The file's URL is empty. Pleas type it again.",
+		"add_another_chapter_to_this_series?": "Do you want to add another Chapter to this series?",
+		"add_another_series_to_the_list?": "Do you want to add another Series to the queue?",
+		"do_you_wish_to_download_this_list?": "Do you wish to download this list?",
+		"yes": "Yes",
+		"no": "No"
 	}
 }

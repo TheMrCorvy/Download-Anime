@@ -1,5 +1,35 @@
 {
 	"es": {
-		"test": "hola mundo!"
+		"test": "hola mundo!",
+		"folder": "Carpeta",
+		"created": "creada!",
+		"already_existed": "ya existía!",
+		"queue_updated": "La lista de las descargas pendientes fue actualizada!",
+		"queue_created": "La lista de las descargas pendientes fue creada!",
+		"failed_downloads_list_updated": "La lista de las descargas fallídas fue actualizada!",
+		"failed_downloads_list_created": "La lista de las descargas pendientes fue creada!",
+		"all_downloads_finished": "TODAS LAS DESCARGAS COMPLETADAS!!!",
+		"download_keeps_failling": "La descarga sigue fallando...",
+		"skipping_to_the_next_one": "Continuando con el siguiente archivo...",
+		"download_started": "Descarga Iniciada! Tamaño Total:",
+		"downloading_file": "Descargando archivo",
+		"error_writting_the_document": "Hubo un error escribiendo el documento...",
+		"file_is_too_big_to_show_progress_bar": "El archivo es demasiado grande para mostrar el porcentaje de progreso...",
+		"download_finished": "Descarga Completa!",
+		"finished_writting_document": "Documento escrito con éxito!",
+		"error_handling_the_request": "Hubo un error enviando la petición...",
+		"retyr_number": "Reintento Nº",
+		"pending_queue_was_found": "Encontramos que hay descargas pendientes, así que comenzaremos desde allí.",
+		"input_dir_name": "Ingresa la ubicación del Directorio:",
+		"input_file_name": "Ingresa el Nombre de la Serie:",
+		"input_file_url": "Ingrese la URL del archivo",
+		"input_custom_name": "Tiene un Nombre particular?",
+		"input_custom_index": "Tiene un Index particular?",
+		"user_forgot_to_add_url": "La URL del archivo está vacía, por favor ingrésela nuevamente.",
+		"add_another_chapter_to_this_series?": "Agregar otro capítulo más a esta serie?",
+		"add_another_series_to_the_list?": "Agregar otra serie más a la lista?",
+		"do_you_wish_to_download_this_list?": "Desea comenzar a descargar con esta lista?",
+		"yes": "Sí",
+		"no": "No"
 	}
 }
