@@ -33,7 +33,8 @@ const initializeProject = async () => {
 		}
 	)
 
-	const config = `#!/usr/bin/env node
+	if (!fs.readFileSync("./src/config.ts")) {
+		const config = `#!/usr/bin/env node
 
 const config = {
 	mainDirectory: "Downloads/",
@@ -43,15 +44,16 @@ const config = {
 }
 
 export default config
-    `
+`
 
-	await fs.writeFile("./src/config.ts", config, (err) => {
-		if (err) {
-			console.error(err)
-		} else if (process.env.NODE_ENV !== "test") {
-			console.log("El archivo .env fue creado!")
-		}
-	})
+		await fs.writeFile("./src/config.ts", config, (err) => {
+			if (err) {
+				console.error(err)
+			} else if (process.env.NODE_ENV !== "test") {
+				console.log("El archivo .env fue creado!")
+			}
+		})
+	}
 }
 
 initializeProject()
