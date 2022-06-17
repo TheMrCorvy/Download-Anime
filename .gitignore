@@ -1,0 +1,13 @@
+/node_modules
+/Downloads
+
+.DS_Store
+pendingDownloads.json
+/pendingDownloads.json
+./pendingDownloads.josn
+
+failedDownloads.json
+/failedDownloads.json
+./failedDownloads.json
+
+/dist
