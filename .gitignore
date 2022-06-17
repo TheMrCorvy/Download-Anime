@@ -29,3 +29,5 @@ failedDownloads.writeJsonFiles.json
 .env
 
 /src/config.ts
+./src/config.ts
+config.ts
