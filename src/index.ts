@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
+import * as fs from "node:fs"
+
 import inquirer from "inquirer"
 import { v4 as uuidv4 } from "uuid"
 
 import Series from "./@types/series"
 import File from "./@types/file"
 
-// import downloadAll from "./functions/downloadAll"
-
-import { queue as jsonQueue } from "../queue.json"
 import config from "./config"
 
 import t from "./functions/translate"
@@ -21,8 +20,14 @@ const newLine = (lines?: number) => {
 	}
 }
 
-const app = async () => {
+const app = async (testArr?: Series[]) => {
+	const jsonQueue: Series[] = JSON.parse(fs.readFileSync("./queue.json", "utf8"))
+
 	let seriesArray: Series[] = []
+
+	if (process.env.NODE_ENV === "test" && testArr) {
+		seriesArray = testArr
+	}
 
 	/**
 	 * When the app starts, it first checks if there was any download
@@ -39,7 +44,7 @@ const app = async () => {
 	let continueAddingCapps = true
 
 	// Loop for adding series
-	while (continueFillingArr) {
+	while (continueFillingArr && process.env.NODE_ENV !== "test") {
 		if (config.allowClearConsole) {
 			console.clear()
 		}
@@ -106,6 +111,8 @@ const app = async () => {
 			 */
 			const chapterId = uuidv4()
 
+			const indexOfSeries = seriesArray.findIndex((s) => s.id === seriesId)
+
 			const chapter: File = {
 				url: chapterPrompt.url,
 				customName:
@@ -115,9 +122,8 @@ const app = async () => {
 						? chapterPrompt.customIndex
 						: undefined,
 				id: chapterId,
+				directory: seriesArray[indexOfSeries].directory,
 			}
-
-			const indexOfSeries = seriesArray.findIndex((s) => s.id === seriesId)
 
 			seriesArray[indexOfSeries].fileArray.push(chapter)
 
@@ -150,6 +156,35 @@ const app = async () => {
 		}
 	}
 
+	// Lets format the array of series, so there will only be 1 simple array of files
+	const formattedSeriesArr: File[] = []
+
+	seriesArray.forEach((series) => {
+		series.fileArray.forEach((chapter, index) => {
+			const chapterIndex = chapter.customIndex !== undefined ? chapter.customIndex : index + 1
+
+			const chapterName = chapter.customName ? chapter.customName : series.fileName
+
+			const chapterUrl = chapter.url
+				? chapter.url
+				: "https://falto-poner-el-link-de-descarga.com"
+
+			formattedSeriesArr.push({
+				...chapter,
+				directory: series.directory,
+				customIndex: chapterIndex,
+				customName: chapterName,
+				url: chapterUrl,
+			})
+		})
+	})
+
+	if (process.env.NODE_ENV === "test") {
+		return formattedSeriesArr
+	}
+
+	// y luego escribirlo en queue.json
+
 	seriesArray.forEach((s) => console.log(s))
 
 	const initDownload = await inquirer.prompt({
@@ -164,8 +199,10 @@ const app = async () => {
 	}
 
 	if (initDownload.start === t("yes")) {
-		// return await downloadFile(seriesArray)
+		// return await downloadFile(formattedSeriesArr)
 	}
 }
 
 app()
+
+export default app
