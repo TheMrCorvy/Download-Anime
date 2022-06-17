@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \"test/**/*.test.ts\"",
 		"build": "tsc -p .",
-		"initialize": "ts-node src/initializeProject.ts"
+		"initialize": "ts-node src/initializeProject.ts",
+		"start": "ts-node src/index.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -19,7 +20,6 @@
 	},
 	"homepage": "https://github.com/TheMrCorvy/Download-Anime#readme",
 	"dependencies": {
-		"dotenv": "^16.0.1",
 		"inquirer": "^8.2.4",
 		"uuid": "^8.3.2"
 	},
