@@ -6,12 +6,12 @@
     hecho test: habiendo un archivo .json para cada idioma, dada una clave y un idioma, retornar un texto traducido
 
 3. la 3ra función a desarrollar es la toma de información desde la consola, con inquirer (index.ts).
-    test: no se. habrá que testear inquirer supongo
+    hecho test: no se. habrá que testear inquirer supongo
     (durante la instancia de testing, en lugar de retornar download file, tiene que retornar el array formateado)
 
 4. despues, otro archivo tiene que formatear la info ingresada por consola, antes de mandarla a escribir
     (esto significa que en lugar de haber un array de arrays, tiene que haber solo 1 array de objetos como pendientes)
-    test: verificar que el array escrito incluye el nombre del archivo, y su respectivo índice
+    hecho test: verificar que el array escrito incluye el nombre del archivo, y su respectivo índice
 
 5. después de tomar los datos desde la consola, la propia función inicial tiene que escribir el arrayPendientes en el queue.json
     test: este es facil, el queue.json priemro tiene que contener un array vacío, y luego tiene que estar completo.
