@@ -4,7 +4,7 @@
 	"description": "This is a tool that I created to download pirate anime in a simpler way. Built with typescript, and using tests to prectise TDD.",
 	"main": "index.js",
 	"scripts": {
-		"test": "test",
+		"test": "NODE_ENV=test mocha --check-leaks -r tsconfig-paths/register -r ts-node/register \"src/test/**/*.spec.ts\"",
 		"build": "tsc -p .",
 		"dev": "NODE_ENV=dev nodemon -r tsconfig-paths/register src/index.ts"
 	},
