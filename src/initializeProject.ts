@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import * as fs from "fs"
+import t from "functions/translate"
 
 const initializeProject = async () => {
 	const language =
@@ -14,7 +15,7 @@ const initializeProject = async () => {
 			if (err) {
 				console.error(err)
 			} else if (process.env.NODE_ENV !== "test") {
-				console.log("La lista de las descargas pendientes fue creada!")
+				console.log(t("queue_created"))
 			}
 		}
 	)
@@ -28,7 +29,7 @@ const initializeProject = async () => {
 			if (err) {
 				console.error(err)
 			} else if (process.env.NODE_ENV !== "test") {
-				console.log("La lista de las descargas pendientes fue creada!")
+				console.log(t("failed_downloads_list_created"))
 			}
 		}
 	)
@@ -50,7 +51,7 @@ export default config
 			if (err) {
 				console.error(err)
 			} else if (process.env.NODE_ENV !== "test") {
-				console.log("El archivo .env fue creado!")
+				console.log(t("config_file_created"))
 			}
 		})
 	}
