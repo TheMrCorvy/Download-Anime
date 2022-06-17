@@ -5,6 +5,8 @@
 		"created": "created!",
 		"already_existed": "already existed!",
 		"queue_updated": "The download queue was successfully updated!",
+		"queue_created": "Downloads queue file was successfully created!",
+		"config_file_created": "Config file was successfully created!",
 		"failed_downloads_list_updated": "Failed downloads list was successfully updated!",
 		"failed_downloads_list_created": "The download queue was successfully created!",
 		"all_downloads_finished": "ALL DOWNLOADS WERE COMPLETED!!!",

@@ -6,6 +6,7 @@
 		"already_existed": "ya existía!",
 		"queue_updated": "La lista de las descargas pendientes fue actualizada!",
 		"queue_created": "La lista de las descargas pendientes fue creada!",
+		"config_file_created": "Archivo de configuración creado!",
 		"failed_downloads_list_updated": "La lista de las descargas fallídas fue actualizada!",
 		"failed_downloads_list_created": "La lista de las descargas pendientes fue creada!",
 		"all_downloads_finished": "TODAS LAS DESCARGAS COMPLETADAS!!!",
