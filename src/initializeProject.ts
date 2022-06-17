@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as fs from "fs"
-import t from "functions/translate"
+import t from "./functions/translate"
 
 const initializeProject = async () => {
 	const language =
