@@ -2,12 +2,14 @@
 /Downloads
 
 .DS_Store
-pendingDownloads.json
-/pendingDownloads.json
-./pendingDownloads.josn
+queue.json
+/queue.json
+./queue.josn
 
 failedDownloads.json
 /failedDownloads.json
 ./failedDownloads.json
 
 /dist
+
+.env
