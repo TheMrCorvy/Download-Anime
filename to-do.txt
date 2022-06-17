@@ -1,5 +1,5 @@
 1. la primera función a desarrollar tiene que ser la de inicializar el proyecto
-    test 1: la app tiene que comprobar que no existe ningún archivo .json, para luego poder crearlos.
+    hecho test 1: la app tiene que comprobar que no existe ningún archivo .json, para luego poder crearlos.
     test 2: la app tiene que detectar el idioma de la pc y agregarlo a un archivo .env
 
 2. luego, hay que desarrollar una función para traducir los mensajes de la consola.

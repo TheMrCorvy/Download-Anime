@@ -13,3 +13,5 @@ failedDownloads.json
 /dist
 
 .env
+
+src/config.ts
