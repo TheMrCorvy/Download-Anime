@@ -17,7 +17,7 @@
     test: este es facil, el queue.json priemro tiene que contener un array vacío, y luego tiene que estar completo.
 
 6. tiene que haber una funcion que sea writeJsonFile, que precisamente actualice los 2 archivos json (queue, y failedDwonloads)
-    test: priemro el archivo .json tiene que tener una info, y luego otra actualizada.
+    hecho test: priemro el archivo .json tiene que tener una info, y luego otra actualizada.
 
 7. luego de haber hecho esto, se tiene que llamar a la función downloadFile
     test 1: si se la llama con un array vacío, tiene que resolver sin nada mas
