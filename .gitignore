@@ -5,6 +5,10 @@
 queue.json
 /queue.json
 ./queue.josn
+
+queue.writeJsonFiles.json
+/queue.writeJsonFiles.json
+./queue.writeJsonFiles.josn
 queue.initializeProject.json
 /queue.initializeProject.json
 ./queue.initializeProject.josn
@@ -16,7 +20,12 @@ failedDownloads.json
 failedDownloads.initializeProject.json
 /failedDownloads.initializeProject.json
 ./failedDownloads.initializeProject.json
+failedDownloads.writeJsonFiles.json
+/failedDownloads.writeJsonFiles.json
+./failedDownloads.writeJsonFiles.json
 
 /dist
 
 .env
+
+/src/config.ts
