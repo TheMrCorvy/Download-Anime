@@ -1,7 +1,7 @@
 import { es } from "../utils/es.json"
 import { en } from "../utils/en.json"
 
-import config from "config"
+import config from "../config"
 
 const t = (key: string = "test") => {
 	let langData: { [key: string]: string } = {}
