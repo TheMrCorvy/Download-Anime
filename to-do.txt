@@ -3,7 +3,7 @@
     hecho test 2: la app tiene que detectar el idioma de la pc y agregarlo a un archivo .env
 
 2. luego, hay que desarrollar una función para traducir los mensajes de la consola.
-    test: habiendo un archivo .json para cada idioma, dada una clave y un idioma, retornar un texto traducido
+    hecho test: habiendo un archivo .json para cada idioma, dada una clave y un idioma, retornar un texto traducido
 
 3. la 3ra función a desarrollar es la toma de información desde la consola, con inquirer (index.ts).
     test: no se. habrá que testear inquirer supongo
