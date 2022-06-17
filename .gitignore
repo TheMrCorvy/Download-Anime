@@ -5,10 +5,17 @@
 queue.json
 /queue.json
 ./queue.josn
+queue.initializeProject.json
+/queue.initializeProject.json
+./queue.initializeProject.josn
 
 failedDownloads.json
 /failedDownloads.json
 ./failedDownloads.json
+
+failedDownloads.initializeProject.json
+/failedDownloads.initializeProject.json
+./failedDownloads.initializeProject.json
 
 /dist
 

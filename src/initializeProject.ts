@@ -7,7 +7,7 @@ const initializeProject = async () => {
 		process.env.LANG || process.env.LANGUAGE || process.env.LC_ALL || process.env.LC_MESSAGES
 
 	await fs.writeFile(
-		"./queue.json",
+		process.env.NODE_ENV !== "test" ? "./queue.json" : "./queue.initializeProject.json",
 		JSON.stringify({
 			queue: [],
 		}),
@@ -21,7 +21,9 @@ const initializeProject = async () => {
 	)
 
 	await fs.writeFile(
-		"./failedDownloads.json",
+		process.env.NODE_ENV !== "test"
+			? "./failedDownloads.json"
+			: "./failedDownloads.initializeProject.json",
 		JSON.stringify({
 			failedDownloads: [],
 		}),
@@ -34,8 +36,7 @@ const initializeProject = async () => {
 		}
 	)
 
-	if (!fs.readFileSync("./src/config.ts")) {
-		const config = `#!/usr/bin/env node
+	const config = `#!/usr/bin/env node
 
 const config = {
 	mainDirectory: "Downloads/",
@@ -47,14 +48,13 @@ const config = {
 export default config
 `
 
-		await fs.writeFile("./src/config.ts", config, (err) => {
-			if (err) {
-				console.error(err)
-			} else if (process.env.NODE_ENV !== "test") {
-				console.log(t("config_file_created"))
-			}
-		})
-	}
+	await fs.writeFile("./src/config.ts", config, (err) => {
+		if (err) {
+			console.error(err)
+		} else if (process.env.NODE_ENV !== "test") {
+			console.log(t("config_file_created"))
+		}
+	})
 }
 
 initializeProject()
