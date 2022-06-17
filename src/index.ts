@@ -3,13 +3,15 @@
 import inquirer from "inquirer"
 import { v4 as uuidv4 } from "uuid"
 
-import { SeriesArray, Series } from "./@types/seriesArray"
+import Series from "./@types/series"
 import File from "./@types/file"
 
-import downloadAll from "./functions/downloadAll"
+// import downloadAll from "./functions/downloadAll"
 
-import { pendingDownloads } from "../pendingDownloads.json"
+import { queue as jsonQueue } from "../queue.json"
 import config from "./config"
+
+import t from "./functions/translate"
 
 const newLine = (lines?: number) => {
 	if (lines) {
@@ -20,17 +22,17 @@ const newLine = (lines?: number) => {
 }
 
 const app = async () => {
-	let seriesArray: SeriesArray = []
+	let seriesArray: Series[] = []
 
 	/**
 	 * When the app starts, it first checks if there was any download
 	 * pending. If there is, then it will start downloading from there,
 	 * else, the app will ask the user to add them from the prompt
 	 */
-	if (pendingDownloads.length >= 1) {
-		console.log("Encontramos que hay descargas pendientes, así que comenzaremos desde allí.")
+	if (jsonQueue.length >= 1) {
+		console.log(t("pending_queue_was_found"))
 
-		return downloadAll(undefined, true)
+		// return downloadFile(undefined, true)
 	}
 
 	let continueFillingArr = true
@@ -46,13 +48,13 @@ const app = async () => {
 			{
 				type: "input",
 				name: "directory",
-				message: "Ingresa la ubicación del Directorio:",
+				message: t("input_dir_name"),
 				default: "undefined",
 			},
 			{
 				type: "input",
 				name: "fileName",
-				message: "Ingresa el Nombre de la Serie:",
+				message: t("input_file_name"),
 				default: "undefined",
 			},
 		])
@@ -70,19 +72,19 @@ const app = async () => {
 				{
 					type: "input",
 					name: "url",
-					message: "Ingrese la URL del archivo",
+					message: t("input_file_url"),
 				},
 				{
 					type: "input",
 					name: "customName",
-					message: "Tiene un Nombre particular?",
-					default: "No",
+					message: t("input_custom_name"),
+					default: t("No"),
 				},
 				{
 					type: "number",
 					name: "customIndex",
-					message: "Tiene un Index particular?",
-					default: "No",
+					message: t("input_custom_index"),
+					default: t("No"),
 				},
 			])
 
@@ -90,7 +92,7 @@ const app = async () => {
 				const newPrompt = await inquirer.prompt({
 					type: "input",
 					name: "url",
-					message: "La URL del archivo está vacía, por favor ingrésela nuevamente.",
+					message: t("user_forgot_to_add_url"),
 				})
 
 				chapterPrompt.url = newPrompt.url
@@ -106,9 +108,9 @@ const app = async () => {
 			const chapter: File = {
 				url: chapterPrompt.url,
 				customName:
-					chapterPrompt.customName !== "No" ? chapterPrompt.customName : undefined,
+					chapterPrompt.customName !== t("No") ? chapterPrompt.customName : undefined,
 				customIndex:
-					chapterPrompt.customIndex !== "No" ? chapterPrompt.customIndex : undefined,
+					chapterPrompt.customIndex !== t("No") ? chapterPrompt.customIndex : undefined,
 				id: chapterId,
 			}
 			const indexOfSeries = seriesArray.findIndex((s) => s.id === seriesId)
@@ -118,11 +120,11 @@ const app = async () => {
 			const chapterLoad = await inquirer.prompt({
 				type: "list",
 				name: "continue",
-				message: "Agregar otro capítulo más a esta serie?",
-				choices: ["Sí", "No"],
+				message: t("add_another_chapter_to_this_series"),
+				choices: [t("yes"), t("No")],
 			})
 
-			if (chapterLoad.continue === "No") {
+			if (chapterLoad.continue === t("No")) {
 				continueAddingCapps = false
 			}
 		}
@@ -132,11 +134,11 @@ const app = async () => {
 		const seriesLoad = await inquirer.prompt({
 			type: "list",
 			name: "continue",
-			message: "Agregar otra serie más a la lista?",
-			choices: ["Sí", "No"],
+			message: t("add_another_series_to_the_list"),
+			choices: [t("yes"), t("No")],
 		})
 
-		if (seriesLoad.continue === "No") {
+		if (seriesLoad.continue === t("No")) {
 			continueFillingArr = false
 		} else {
 			newLine()
@@ -149,16 +151,16 @@ const app = async () => {
 	const initDownload = await inquirer.prompt({
 		type: "list",
 		name: "start",
-		message: "Desea comenzar a descargar con esta lista?",
-		choices: ["Sí", "No"],
+		message: t("do_you_wish_to_download_this_list"),
+		choices: [t("yes"), t("No")],
 	})
 
 	if (config.allowClearConsole) {
 		console.clear()
 	}
 
-	if (initDownload.start === "Sí") {
-		downloadAll({ fileIndex: 0, seriesIndex: 0, seriesArray }, false, true)
+	if (initDownload.start === t("yes")) {
+		// return await downloadFile(seriesArray)
 	}
 }
 
