@@ -26,9 +26,9 @@
 		"input_custom_name": "Tiene un Nombre particular?",
 		"input_custom_index": "Tiene un Index particular?",
 		"user_forgot_to_add_url": "La URL del archivo está vacía, por favor ingrésela nuevamente.",
-		"add_another_chapter_to_this_series?": "Agregar otro capítulo más a esta serie?",
-		"add_another_series_to_the_list?": "Agregar otra serie más a la lista?",
-		"do_you_wish_to_download_this_list?": "Desea comenzar a descargar con esta lista?",
+		"add_another_chapter_to_this_series": "Agregar otro capítulo más a esta serie?",
+		"add_another_series_to_the_list": "Agregar otra serie más a la lista?",
+		"do_you_wish_to_download_this_list": "Desea comenzar a descargar con esta lista?",
 		"yes": "Sí",
 		"no": "No"
 	}

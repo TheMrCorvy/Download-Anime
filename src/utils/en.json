@@ -25,9 +25,9 @@
 		"input_custom_name": "Does it has a particular Name?",
 		"input_custom_index": "Does it has a particular Index?",
 		"user_forgot_to_add_url": "The file's URL is empty. Pleas type it again.",
-		"add_another_chapter_to_this_series?": "Do you want to add another Chapter to this series?",
-		"add_another_series_to_the_list?": "Do you want to add another Series to the queue?",
-		"do_you_wish_to_download_this_list?": "Do you wish to download this list?",
+		"add_another_chapter_to_this_series": "Do you want to add another Chapter to this series?",
+		"add_another_series_to_the_list": "Do you want to add another Series to the queue?",
+		"do_you_wish_to_download_this_list": "Do you wish to download this list?",
 		"yes": "Yes",
 		"no": "No"
 	}

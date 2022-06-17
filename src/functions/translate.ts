@@ -3,7 +3,7 @@ import { en } from "../utils/en.json"
 
 import config from "config"
 
-const t = (key: string) => {
+const t = (key: string = "test") => {
 	let langData: { [key: string]: string } = {}
 
 	if (config.language === "es_ES.UTF-8") {
