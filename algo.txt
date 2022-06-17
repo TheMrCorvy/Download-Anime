@@ -1,0 +1,46 @@
+MUY IMPORTANTE EL ARRAY DE DESCARGAS PENDIENTES TIENE QUE SER [...ARRAY] SI O SI, PARA EVITAR FALLOS
+
+lo que puedo intentar es que la funcion index.ts llame a download file, luego download file llama a las funciones para 
+actualizar los .json, luego llame a la funcion para extraer subtitulos, de ser necesario, y luego si todavia queda un 
+elemento en el array, que se llame a sí misma.
+
+download file, tendrá que ser entonces una función asíncrona
+
+download file = async (arrayPendientes, retryInstance = 0) => {
+
+    if(retryInstance => maxRetries) {
+        nuevoArrPendientes = array viejo - el 1er elemento
+
+        escribir en descargas fallidas (arrayViejo[0])
+        escribir en descargas pendientes (arrayNuevo)
+
+        return await downloadFile(arrayNuevo)
+    }
+
+    descargar(arrayPendientes[0])
+
+    cuando la descarga falle = () => {
+        if(arrayPendientes.length > 1){
+            return await downloadFile(arrayPendientes, retryInstance++)
+        }
+    }
+
+    cuando la escritura falle = () => {
+        if(arrayPendientes.length > 1){
+            return await downloadFile(arrayPendientes, retryInstance++)
+        }
+    }
+
+    cuando la descarga termine correctamente = () => {
+        if(arrayPendientes.length > 1){
+            nuevoArrPendientes = array viejo - el 1er elemento
+
+            escribir en descargas fallidas (arrayViejo[0])
+            escribir en descargas pendientes (arrayNuevo)
+
+            return await downloadFile(arrayNuevo)
+        }
+    }
+
+    MISSION COMPLETE!!
+}

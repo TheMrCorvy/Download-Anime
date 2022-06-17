@@ -1,0 +1,36 @@
+1. la primera función a desarrollar tiene que ser la de inicializar el proyecto
+    test 1: la app tiene que comprobar que no existe ningún archivo .json, para luego poder crearlos.
+    test 2: la app tiene que detectar el idioma de la pc y agregarlo a un archivo .env
+
+2. luego, hay que desarrollar una función para traducir los mensajes de la consola.
+    test: habiendo un archivo .json para cada idioma, dada una clave y un idioma, retornar un texto traducido
+
+3. la 3ra función a desarrollar es la toma de información desde la consola, con inquirer (index.ts).
+    test: no se. habrá que testear inquirer supongo
+    (durante la instancia de testing, en lugar de retornar download file, tiene que retornar el array formateado)
+
+4. despues, otro archivo tiene que formatear la info ingresada por consola, antes de mandarla a escribir
+    (esto significa que en lugar de haber un array de arrays, tiene que haber solo 1 array de objetos como pendientes)
+    test: verificar que el array escrito incluye el nombre del archivo, y su respectivo índice
+
+5. después de tomar los datos desde la consola, la propia función inicial tiene que escribir el arrayPendientes en el queue.json
+    test: este es facil, el queue.json priemro tiene que contener un array vacío, y luego tiene que estar completo.
+
+6. tiene que haber una funcion que sea writeJsonFile, que precisamente actualice los 2 archivos json (queue, y failedDwonloads)
+    test: priemro el archivo .json tiene que tener una info, y luego otra actualizada.
+
+7. luego de haber hecho esto, se tiene que llamar a la función downloadFile
+    test 1: si se la llama con un array vacío, tiene que resolver sin nada mas
+    test 2: si se la llama con un array de un solo elemento, tiene que descargarlo, escribirlo, y nada mas
+    test 3: si se la llama con un array de mas de un elemento, se espera que la función sea llamada una cantidad de veces igual
+    a la cantidad de elementos en el array.
+    test 4: si se le pasa un elemento que tiene una url inválida, es esperable que la funcion sea llamada una cantidad determinada
+    de veces (maxRetries)
+
+8. la función downloadFile llama a otra para crear los directorios
+    test 1: antes no había un directorio, y ahora si.
+    test 2: antes había un directorio, y ahora contiene algo
+
+9. la funcion downloadFile llama a una función externa para formatear los nombres
+    test 1: dado un directorio y un nombre, esperar que se formatee como dirección de archivos
+    test 2: la función tiene que agregar mayúsculas a cada palabra

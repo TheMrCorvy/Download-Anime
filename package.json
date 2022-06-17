@@ -1,0 +1,19 @@
+{
+  "name": "download-anime",
+  "version": "1.0.0",
+  "description": "This is a tool that I created to download pirate anime in a simpler way. Built with typescript, and using tests to prectise TDD.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheMrCorvy/Download-Anime.git"
+  },
+  "author": "TheMrCorvy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheMrCorvy/Download-Anime/issues"
+  },
+  "homepage": "https://github.com/TheMrCorvy/Download-Anime#readme"
+}
