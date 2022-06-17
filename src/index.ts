@@ -78,13 +78,13 @@ const app = async () => {
 					type: "input",
 					name: "customName",
 					message: t("input_custom_name"),
-					default: t("No"),
+					default: t("no"),
 				},
 				{
 					type: "number",
 					name: "customIndex",
 					message: t("input_custom_index"),
-					default: t("No"),
+					default: t("no"),
 				},
 			])
 
@@ -105,14 +105,18 @@ const app = async () => {
 			 * the app should take it into consideration.
 			 */
 			const chapterId = uuidv4()
+
 			const chapter: File = {
 				url: chapterPrompt.url,
 				customName:
-					chapterPrompt.customName !== t("No") ? chapterPrompt.customName : undefined,
+					chapterPrompt.customName !== t("no") ? chapterPrompt.customName : undefined,
 				customIndex:
-					chapterPrompt.customIndex !== t("No") ? chapterPrompt.customIndex : undefined,
+					chapterPrompt.customIndex !== t("no") && chapterPrompt.customIndex !== undefined
+						? chapterPrompt.customIndex
+						: undefined,
 				id: chapterId,
 			}
+
 			const indexOfSeries = seriesArray.findIndex((s) => s.id === seriesId)
 
 			seriesArray[indexOfSeries].fileArray.push(chapter)
@@ -121,10 +125,10 @@ const app = async () => {
 				type: "list",
 				name: "continue",
 				message: t("add_another_chapter_to_this_series"),
-				choices: [t("yes"), t("No")],
+				choices: [t("yes"), t("no")],
 			})
 
-			if (chapterLoad.continue === t("No")) {
+			if (chapterLoad.continue === t("no")) {
 				continueAddingCapps = false
 			}
 		}
@@ -135,10 +139,10 @@ const app = async () => {
 			type: "list",
 			name: "continue",
 			message: t("add_another_series_to_the_list"),
-			choices: [t("yes"), t("No")],
+			choices: [t("yes"), t("no")],
 		})
 
-		if (seriesLoad.continue === t("No")) {
+		if (seriesLoad.continue === t("no")) {
 			continueFillingArr = false
 		} else {
 			newLine()
@@ -152,7 +156,7 @@ const app = async () => {
 		type: "list",
 		name: "start",
 		message: t("do_you_wish_to_download_this_list"),
-		choices: [t("yes"), t("No")],
+		choices: [t("yes"), t("no")],
 	})
 
 	if (config.allowClearConsole) {
