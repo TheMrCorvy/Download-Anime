@@ -48,8 +48,6 @@ Or
 
 ## Things to add in the future
 
-1. Testing.
+1. Get the subtitles from an MKV video file, and export them as a sepparate file (either SRT or any other format).
 
-2. Get the subtitles from an MKV video file, and export them as a sepparate file (either SRT or any other format).
-
-3. If the subtitle file exported was different from SRT format, transiple it to SRT.
+2. If the subtitle file exported was different from SRT format, transiple it to SRT.
