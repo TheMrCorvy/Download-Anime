@@ -11,24 +11,25 @@ const writeJsonFiles: WriteJsonFiles = (option, obj) => {
 
 	const jsonQueue: JsonQueue = JSON.parse(fs.readFileSync(path, "utf8"))
 
-	const newArr = [...jsonQueue[option]]
+	let newArr = [...jsonQueue[option]]
 
-	newArr.push(obj)
-
-	if (option === "queue") {
-		fs.writeFileSync(
-			path,
-			JSON.stringify({
-				queue: newArr,
-			})
-		)
+	if (Array.isArray(obj)) {
+		newArr = [...newArr, ...obj]
 	} else {
-		fs.writeFileSync(
-			path,
-			JSON.stringify({
-				failedDownloads: newArr,
-			})
-		)
+		newArr.push(obj)
+	}
+
+	fs.writeFileSync(
+		path,
+		JSON.stringify({
+			[option]: [...newArr],
+		})
+	)
+
+	if (!testing) {
+		const message = option === "queue" ? "queue_created" : "failed_downloads_list_created"
+
+		console.log(t(message))
 	}
 }
 
@@ -37,6 +38,6 @@ interface JsonQueue {
 	failedDownloads: File[]
 }
 
-type WriteJsonFiles = (option: "queue" | "failedDownloads", obj: File) => void
+type WriteJsonFiles = (option: "queue" | "failedDownloads", obj: File | File[]) => void
 
 export default writeJsonFiles
