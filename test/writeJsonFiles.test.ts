@@ -4,12 +4,36 @@ import { expect } from "chai"
 
 import writeJsonFiles from "../src/functions/writeJsonFiles"
 
-describe("the app should be able to write new content on json files properly", () => {
-	it("should be able to write the queue.json", () => {
+describe("the app should write new content on json files, and keep already written content", () => {
+	const fileArr = [
+		{
+			customName: "anime series 1",
+			customIndex: 0,
+			directory: "directory 1",
+			url: "https://url.com",
+			id: "id chapter 1",
+		},
+		{
+			customName: "anime series 1",
+			customIndex: 1,
+			directory: "directory 1",
+			url: "https://url.com",
+			id: "id chapter 2",
+		},
+		{
+			customName: "anime series 1",
+			customIndex: 2,
+			directory: "directory 1",
+			url: "https://url.com",
+			id: "id chapter 3",
+		},
+	]
+
+	it("should write the queue.json", () => {
 		fs.writeFileSync(
 			"./queue.writeJsonFiles.json",
 			JSON.stringify({
-				queue: [],
+				queue: fileArr,
 			})
 		)
 
@@ -25,6 +49,7 @@ describe("the app should be able to write new content on json files properly", (
 
 		expect(jsonQueue).to.be.deep.equal({
 			queue: [
+				...fileArr,
 				{
 					customName: "anime series 1",
 					customIndex: 0,
@@ -42,7 +67,7 @@ describe("the app should be able to write new content on json files properly", (
 		})
 	})
 
-	it("should be able to write the failedDownloads.json", () => {
+	it("should write the failedDownloads.json", () => {
 		fs.writeFileSync(
 			"./failedDownloads.writeJsonFiles.json",
 			JSON.stringify({
@@ -50,28 +75,14 @@ describe("the app should be able to write new content on json files properly", (
 			})
 		)
 
-		writeJsonFiles("failedDownloads", {
-			customName: "anime series 1",
-			customIndex: 0,
-			directory: "directory 1",
-			url: "https://url.com",
-			id: "id chapter 1",
-		})
+		writeJsonFiles("failedDownloads", fileArr)
 
 		const jsonFailedDownloads = JSON.parse(
 			fs.readFileSync("./failedDownloads.writeJsonFiles.json", "utf8")
 		)
 
 		expect(jsonFailedDownloads).to.be.deep.equal({
-			failedDownloads: [
-				{
-					customName: "anime series 1",
-					customIndex: 0,
-					directory: "directory 1",
-					url: "https://url.com",
-					id: "id chapter 1",
-				},
-			],
+			failedDownloads: fileArr,
 		})
 
 		after(() => {
