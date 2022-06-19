@@ -11,6 +11,7 @@ import File from "./@types/file"
 import config from "./config"
 
 import t from "./functions/translate"
+import writeJsonFiles from "functions/writeJsonFiles"
 
 const newLine = (lines?: number) => {
 	if (lines) {
@@ -183,7 +184,7 @@ const app = async (testArr?: Series[]) => {
 		return formattedSeriesArr
 	}
 
-	// y luego escribirlo en queue.json
+	writeJsonFiles("queue", [...formattedSeriesArr])
 
 	seriesArray.forEach((s) => console.log(s))
 
@@ -199,7 +200,7 @@ const app = async (testArr?: Series[]) => {
 	}
 
 	if (initDownload.start === t("yes")) {
-		// return await downloadFile(formattedSeriesArr)
+		// return await downloadFile([...formattedSeriesArr])
 	}
 }
 
