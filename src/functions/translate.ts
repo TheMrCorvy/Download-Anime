@@ -1,5 +1,5 @@
-import { es } from "../utils/es.json"
-import { en } from "../utils/en.json"
+import { es } from "../lang/es.json"
+import { en } from "../lang/en.json"
 
 import config from "../config"
 

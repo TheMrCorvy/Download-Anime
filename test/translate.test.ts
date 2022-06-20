@@ -2,8 +2,8 @@ import { expect } from "chai"
 
 import t from "../src/functions/translate"
 import config from "../src/config"
-import { es } from "../src/utils/es.json"
-import { en } from "../src/utils/en.json"
+import { es } from "../src/lang/es.json"
+import { en } from "../src/lang/en.json"
 
 it("should translate the messages properly", () => {
 	const testMessageES = es.test
