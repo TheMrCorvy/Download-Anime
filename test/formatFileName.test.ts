@@ -23,4 +23,46 @@ describe("given a file, the function should return the formatted path for that f
 
 		expect(capitalize(str)).to.be.equal(capStr)
 	})
+
+	it("should consider the ending of an url, and handle it properly", () => {
+		const caseDotCom: File = {
+			id: "file_id_1",
+			customName: "series 1",
+			customIndex: 1,
+			directory: "series 1/ova",
+			url: "https://google.com",
+		}
+
+		const caseDotLargeUrl: File = {
+			id: "file_id_1",
+			customName: "series 1",
+			customIndex: 1,
+			directory: "series 1/ova",
+			url: "https://google.some-web-page",
+		}
+
+		const caseDotSmallUrl: File = {
+			id: "file_id_1",
+			customName: "series 1",
+			customIndex: 1,
+			directory: "series 1/ova",
+			url: "https://google.s",
+		}
+
+		expect(formatFileName(caseDotCom)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
+		expect(formatFileName(caseDotLargeUrl)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
+		expect(formatFileName(caseDotSmallUrl)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
+	})
+
+	it("should handle a file with no custom index properly", () => {
+		const rawFile: File = {
+			id: "file_id_1",
+			customName: "series 1",
+			customIndex: undefined,
+			directory: "series 1/ova",
+			url: "https://google.com/file.mkv",
+		}
+
+		expect(formatFileName(rawFile)).to.be.equal("Series 1/Ova/File_id_1 - Series 1.mkv")
+	})
 })

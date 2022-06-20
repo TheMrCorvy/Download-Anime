@@ -4,7 +4,11 @@ import File from "../@types/file"
 
 const formatFileName: FormatFileName = ({ directory, customIndex, customName, url, id }) => {
 	const formatArr = url.split(".")
-	const format = formatArr[formatArr.length - 1] ? formatArr[formatArr.length - 1] : "mp4"
+
+	let format = formatArr[formatArr.length - 1] ? formatArr[formatArr.length - 1] : "undefined"
+	format = format.length < 2 || format.length > 3 ? "undefined" : format
+	format = format === "com" || format === "net" || format === "xyz" ? "undefined" : format
+
 	let i: string
 
 	if (customIndex) {
