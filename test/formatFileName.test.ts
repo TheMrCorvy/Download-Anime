@@ -49,9 +49,11 @@ describe("given a file, the function should return the formatted path for that f
 			url: "https://google.s",
 		}
 
-		expect(formatFileName(caseDotCom)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
-		expect(formatFileName(caseDotLargeUrl)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
-		expect(formatFileName(caseDotSmallUrl)).to.be.equal("Series 1/Ova/01 - Series 1.undefined")
+		const unsupportedFormat = "Series 1/Ova/01 - Series 1.undefined"
+
+		expect(formatFileName(caseDotCom)).to.be.equal(unsupportedFormat)
+		expect(formatFileName(caseDotLargeUrl)).to.be.equal(unsupportedFormat)
+		expect(formatFileName(caseDotSmallUrl)).to.be.equal(unsupportedFormat)
 	})
 
 	it("should handle a file with no custom index properly", () => {
