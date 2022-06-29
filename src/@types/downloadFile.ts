@@ -1,9 +1,9 @@
-import Series from "./series"
+import File from "./file"
 
 export type DownloadFile = ({}: Params) => Callback | void
 
 interface Params {
-	queue: Series[]
+	queue: File[]
 	retryInstance: number
 }
 
