@@ -14,7 +14,11 @@ const writeJsonFiles: WriteJsonFiles = (option, obj) => {
 	let newArr = [...jsonQueue[option]]
 
 	if (Array.isArray(obj)) {
-		newArr = [...newArr, ...obj]
+		if (option === "queue") {
+			newArr = [...obj]
+		} else {
+			newArr = [...newArr, ...obj]
+		}
 	} else {
 		newArr.push(obj)
 	}
