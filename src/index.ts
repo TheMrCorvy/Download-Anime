@@ -12,6 +12,7 @@ import config from "./config"
 
 import t from "./functions/translate"
 import writeJsonFiles from "./functions/writeJsonFiles"
+import downloadFile from "./functions/downloadFile"
 
 const newLine = (lines?: number) => {
 	if (lines) {
@@ -22,7 +23,7 @@ const newLine = (lines?: number) => {
 }
 
 const app = async (testArr?: Series[]) => {
-	const jsonQueue: Series[] = JSON.parse(fs.readFileSync("./queue.json", "utf8"))
+	const jsonQueue = JSON.parse(fs.readFileSync("./queue.json", "utf8"))
 
 	let seriesArray: Series[] = []
 
@@ -35,10 +36,10 @@ const app = async (testArr?: Series[]) => {
 	 * pending. If there is, then it will start downloading from there,
 	 * else, the app will ask the user to add them from the prompt
 	 */
-	if (jsonQueue.length >= 1) {
+	if (jsonQueue.queue.length >= 1) {
 		console.log(t("pending_queue_was_found"))
 
-		// return downloadFile(undefined, true)
+		return downloadFile({ queue: jsonQueue.queue, retryInstance: 0 })
 	}
 
 	let continueFillingArr = true
@@ -200,7 +201,7 @@ const app = async (testArr?: Series[]) => {
 	}
 
 	if (initDownload.start === t("yes")) {
-		// return await downloadFile([...formattedSeriesArr])
+		return await downloadFile({ queue: [...formattedSeriesArr], retryInstance: 0 })
 	}
 }
 
