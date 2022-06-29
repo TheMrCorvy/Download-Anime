@@ -19,7 +19,7 @@
 		"download_finished": "Download Finished!",
 		"finished_writting_document": "The document was written successfully!",
 		"error_handling_the_request": "There was an error doing the request...",
-		"retyr_number": "Retry Nº",
+		"retry_number": "Retry Nº",
 		"pending_queue_was_found": "We've found some pending downloads on the queue, so we'll start from there.",
 		"input_dir_name": "Type the Directory's Location:",
 		"input_file_name": "Type the Name of the Series:",

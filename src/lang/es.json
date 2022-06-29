@@ -19,7 +19,7 @@
 		"download_finished": "Descarga Completa!",
 		"finished_writting_document": "Documento escrito con éxito!",
 		"error_handling_the_request": "Hubo un error enviando la petición...",
-		"retyr_number": "Reintento Nº",
+		"retry_number": "Reintento Nº",
 		"pending_queue_was_found": "Encontramos que hay descargas pendientes, así que comenzaremos desde allí.",
 		"input_dir_name": "Ingresa la ubicación del Directorio:",
 		"input_file_name": "Ingresa el Nombre de la Serie:",
