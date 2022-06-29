@@ -52,7 +52,7 @@ const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
 		// if the request gets an invalid response
 		if (total < 10 || isNaN(total)) {
 			console.log(t("error_handling_the_request"))
-			console.log(t("retry_number" + " " + retryInstance + 1))
+			console.log(t("retry_number") + " " + retryInstance)
 			console.log(
 				`${t("downloading_file")}: ${file.customIndex} - ${capitalize(file.customName)}`
 			)
@@ -75,7 +75,7 @@ const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
 		fileStream.on("error", async (err) => {
 			console.error(err)
 			console.log(t("error_writting_the_document"))
-			console.log(t("retry_number" + " " + retryInstance + 1))
+			console.log(t("retry_number") + " " + retryInstance)
 			console.log(capitalize(file.customName))
 
 			return await downloadFile({ queue, retryInstance: retryInstance + 1 })
@@ -133,7 +133,7 @@ const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
 	req.on("error", async (err) => {
 		console.error(err)
 		console.log(t("error_handling_the_request"))
-		console.log(t("retry_number" + " " + retryInstance + 1))
+		console.log(t("retry_number") + " " + retryInstance)
 		console.log(capitalize(file.customName))
 
 		return await downloadFile({ queue, retryInstance: retryInstance + 1 })
