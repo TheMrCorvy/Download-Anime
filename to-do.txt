@@ -28,8 +28,8 @@
     de veces (maxRetries)
 
 8. la función downloadFile llama a otra para crear los directorios
-    test 1: antes no había un directorio, y ahora si.
-    test 2: antes había un directorio, y ahora contiene algo
+    hecho test 1: antes no había un directorio, y ahora si.
+    hecho test 2: antes había un directorio, y ahora contiene algo
 
 9. la funcion downloadFile llama a una función externa para formatear los nombres
     hecho test 1: dado un directorio y un nombre, esperar que se formatee como dirección de archivos
