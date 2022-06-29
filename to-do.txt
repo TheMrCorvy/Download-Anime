@@ -19,18 +19,10 @@
 6. tiene que haber una funcion que sea writeJsonFile, que precisamente actualice los 2 archivos json (queue, y failedDwonloads)
     hecho test: priemro el archivo .json tiene que tener una info, y luego otra actualizada.
 
-7. luego de haber hecho esto, se tiene que llamar a la función downloadFile
-    test 1: si se la llama con un array vacío, tiene que resolver sin nada mas
-    test 2: si se la llama con un array de un solo elemento, tiene que descargarlo, escribirlo, y nada mas
-    test 3: si se la llama con un array de mas de un elemento, se espera que la función sea llamada una cantidad de veces igual
-    a la cantidad de elementos en el array.
-    test 4: si se le pasa un elemento que tiene una url inválida, es esperable que la funcion sea llamada una cantidad determinada
-    de veces (maxRetries)
-
-8. la función downloadFile llama a otra para crear los directorios
+7. la función downloadFile llama a otra para crear los directorios
     hecho test 1: antes no había un directorio, y ahora si.
     hecho test 2: antes había un directorio, y ahora contiene algo
 
-9. la funcion downloadFile llama a una función externa para formatear los nombres
+8. la funcion downloadFile llama a una función externa para formatear los nombres
     hecho test 1: dado un directorio y un nombre, esperar que se formatee como dirección de archivos
     hecho test 2: la función tiene que agregar mayúsculas a cada palabra
