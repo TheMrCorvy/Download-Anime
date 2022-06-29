@@ -16,8 +16,8 @@ describe("the app should create directories only if needed", () => {
 		expect(fs.existsSync(dirCreated)).to.be.true
 
 		after(() => {
-			if (fs.existsSync(dir)) {
-				fs.unlinkSync(dir)
+			if (fs.existsSync(dirCreated)) {
+				fs.unlinkSync(dirCreated)
 			}
 		})
 	})
@@ -32,10 +32,10 @@ describe("the app should create directories only if needed", () => {
 
 		expect(fs.existsSync(dirCreated)).to.be.true
 
-		// after(() => {
-		// 	if (fs.existsSync(dir)) {
-		// 		fs.unlinkSync(dir)
-		// 	}
-		// })
+		after(() => {
+			if (fs.existsSync(dirCreated)) {
+				fs.unlinkSync(dirCreated)
+			}
+		})
 	})
 })
