@@ -12,6 +12,8 @@ import createDirectory from "./createDirectory"
 import config from "../config"
 
 const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
+	if (config.allowClearConsole) console.clear()
+
 	if (retryInstance >= config.maxRetries) {
 		const { firstElement, updatedArr } = removeFirst(queue)
 
