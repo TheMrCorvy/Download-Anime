@@ -11,7 +11,7 @@ import File from "./@types/file"
 import config from "./config"
 
 import t from "./functions/translate"
-import writeJsonFiles from "functions/writeJsonFiles"
+import writeJsonFiles from "./functions/writeJsonFiles"
 
 const newLine = (lines?: number) => {
 	if (lines) {
