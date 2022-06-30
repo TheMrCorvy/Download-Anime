@@ -67,9 +67,7 @@ const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
 			`${t("downloading_file")}: ${file.customIndex} - ${capitalize(file.customName)}`
 		)
 
-		if (!fs.existsSync(directory)) {
-			createDirectory(directory)
-		}
+		createDirectory(directory)
 
 		// lets start actually writting the file
 		const fileStream = fs.createWriteStream(formatFileName(file))
