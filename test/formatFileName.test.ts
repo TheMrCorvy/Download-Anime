@@ -4,6 +4,8 @@ import File from "../src/@types/file"
 
 import formatFileName, { capitalize } from "../src/functions/formatFileName"
 
+import config from "../src/config"
+
 describe("given a file, the function should return the formatted path for that file", () => {
 	it("should return the proper path for a file", () => {
 		const rawFile: File = {
@@ -14,7 +16,9 @@ describe("given a file, the function should return the formatted path for that f
 			url: "https://google.com/file.mkv",
 		}
 
-		expect(formatFileName(rawFile)).to.be.equal("Series 1/Ova/01 - Series 1.mkv")
+		const output = config.mainDirectory + "Series 1/Ova/01 - Series 1.mkv"
+
+		expect(formatFileName(rawFile)).to.be.equal(output)
 	})
 
 	it("should return a capitalize all the words", () => {
@@ -49,7 +53,7 @@ describe("given a file, the function should return the formatted path for that f
 			url: "https://google.s",
 		}
 
-		const unsupportedFormat = "Series 1/Ova/01 - Series 1.undefined"
+		const unsupportedFormat = config.mainDirectory + "Series 1/Ova/01 - Series 1.undefined"
 
 		expect(formatFileName(caseDotCom)).to.be.equal(unsupportedFormat)
 		expect(formatFileName(caseDotLargeUrl)).to.be.equal(unsupportedFormat)
@@ -65,6 +69,8 @@ describe("given a file, the function should return the formatted path for that f
 			url: "https://google.com/file.mkv",
 		}
 
-		expect(formatFileName(rawFile)).to.be.equal("Series 1/Ova/File_id_1 - Series 1.mkv")
+		const output = config.mainDirectory + "Series 1/Ova/File_id_1 - Series 1.mkv"
+
+		expect(formatFileName(rawFile)).to.be.equal(output)
 	})
 })
