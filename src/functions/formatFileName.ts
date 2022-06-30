@@ -2,6 +2,8 @@
 
 import File from "../@types/file"
 
+import config from "../config"
+
 const formatFileName: FormatFileName = ({ directory, customIndex, customName, url, id }) => {
 	const formatArr = url.split(".")
 
@@ -17,7 +19,7 @@ const formatFileName: FormatFileName = ({ directory, customIndex, customName, ur
 		i = id
 	}
 
-	return capitalize(`${directory}/${i} - ${customName}.${format}`)
+	return capitalize(`${config.mainDirectory}${directory}/${i} - ${customName}.${format}`)
 }
 
 export const capitalize = (str: string): string => {
