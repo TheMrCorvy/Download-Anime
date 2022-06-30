@@ -6,7 +6,7 @@ const formatFileName: FormatFileName = ({ directory, customIndex, customName, ur
 	const formatArr = url.split(".")
 
 	let format = formatArr[formatArr.length - 1] ? formatArr[formatArr.length - 1] : "undefined"
-	format = format.length < 2 || format.length > 3 ? "undefined" : format
+	format = format.length < 2 || format.length > 4 ? "undefined" : format
 	format = format === "com" || format === "net" || format === "xyz" ? "undefined" : format
 
 	let i: string
