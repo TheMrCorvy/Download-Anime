@@ -52,15 +52,15 @@ const downloadFile: DownloadFile = async ({ queue, retryInstance }) => {
 		let lastProgress = 0
 
 		// if the request gets an invalid response
-		if (total < 10 || isNaN(total)) {
-			console.log(t("error_handling_the_request"))
-			console.log(t("retry_number") + " " + retryInstance)
-			console.log(
-				`${t("downloading_file")}: ${file.customIndex} - ${capitalize(file.customName)}`
-			)
+		// if (total < 10 || isNaN(total)) {
+		// 	console.log(t("error_handling_the_request"))
+		// 	console.log(t("retry_number") + " " + retryInstance)
+		// 	console.log(
+		// 		`${t("downloading_file")}: ${file.customIndex} - ${capitalize(file.customName)}`
+		// 	)
 
-			return await downloadFile({ queue, retryInstance: retryInstance + 1 })
-		}
+		// 	return await downloadFile({ queue, retryInstance: retryInstance + 1 })
+		// }
 
 		console.log(`${t("download_started")} ${total.toFixed(2)}mb`)
 		console.log(
