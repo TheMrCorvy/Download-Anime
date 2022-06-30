@@ -27,7 +27,9 @@ const app = async (testArr?: Series[]) => {
 
 	let seriesArray: Series[] = []
 
-	if (process.env.NODE_ENV === "test" && testArr) {
+	const test = process.env.NODE_ENV === "test"
+
+	if (test && testArr) {
 		seriesArray = testArr
 	}
 
@@ -36,7 +38,7 @@ const app = async (testArr?: Series[]) => {
 	 * pending. If there is, then it will start downloading from there,
 	 * else, the app will ask the user to add them from the prompt
 	 */
-	if (jsonQueue.queue.length >= 1) {
+	if (jsonQueue.queue.length >= 1 && !test) {
 		console.log(t("pending_queue_was_found"))
 
 		return downloadFile({ queue: jsonQueue.queue, retryInstance: 0 })
@@ -46,8 +48,8 @@ const app = async (testArr?: Series[]) => {
 	let continueAddingCapps = true
 
 	// Loop for adding series
-	while (continueFillingArr && process.env.NODE_ENV !== "test") {
-		if (config.allowClearConsole) {
+	while (continueFillingArr && !test) {
+		if (config.allowClearConsole && !test) {
 			console.clear()
 		}
 
@@ -181,7 +183,7 @@ const app = async (testArr?: Series[]) => {
 		})
 	})
 
-	if (process.env.NODE_ENV === "test") {
+	if (test) {
 		return formattedSeriesArr
 	}
 
@@ -196,11 +198,11 @@ const app = async (testArr?: Series[]) => {
 		choices: [t("yes"), t("no")],
 	})
 
-	if (config.allowClearConsole) {
+	if (config.allowClearConsole && !test) {
 		console.clear()
 	}
 
-	if (initDownload.start === t("yes")) {
+	if (initDownload.start === t("yes") && !test) {
 		return await downloadFile({ queue: [...formattedSeriesArr], retryInstance: 0 })
 	}
 }
