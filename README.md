@@ -30,6 +30,16 @@ And after that:
 
 ---
 
+## Testing
+
+Run this command to start the app:
+
+```bash
+  npm run test
+```
+
+---
+
 ## Usage
 
 Run this command to start the app:
