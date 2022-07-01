@@ -25,16 +25,16 @@ describe("the app should remove elements from arrays", () => {
 
 		const { firstElement, updatedArr } = removeFirst(arr)
 
-		// expect(firstElement).to.be.eql(arr[0])
-		// expect(updatedArr).to.be.eql([
-		// 	{
-		// 		id: "file 2",
-		// 		customIndex: 1,
-		// 		customName: "name",
-		// 		directory: "directory",
-		// 		url: "https://google.com",
-		// 	},
-		// ])
+		expect(firstElement).to.be.eql(arr[0])
+		expect(updatedArr).to.be.eql([
+			{
+				id: "file 2",
+				customIndex: 1,
+				customName: "name",
+				directory: "directory",
+				url: "https://google.com",
+			},
+		])
 	})
 
 	it("should return empty arr if only has 1 item", () => {
@@ -50,8 +50,8 @@ describe("the app should remove elements from arrays", () => {
 
 		const { firstElement, updatedArr } = removeFirst(arr)
 
-		// expect(firstElement).to.be.eql(arr[0])
-		// expect(updatedArr).to.be.eql([])
+		expect(firstElement).to.be.eql(arr[0])
+		expect(updatedArr).to.be.eql([])
 	})
 
 	it("should check if there actually is anything to remove", () => {
@@ -59,7 +59,7 @@ describe("the app should remove elements from arrays", () => {
 
 		const { firstElement, updatedArr } = removeFirst(arr)
 
-		// expect(firstElement).to.be.eql(undefined)
-		// expect(updatedArr).to.be.eql([])
+		expect(firstElement).to.be.eql(undefined)
+		expect(updatedArr).to.be.eql([])
 	})
 })
